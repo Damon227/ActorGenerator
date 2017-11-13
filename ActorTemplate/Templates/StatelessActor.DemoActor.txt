@@ -1,0 +1,29 @@
+﻿using System;
+using KC.Foundation.SF.Actors;
+using Microsoft.ServiceFabric.Actors;
+using Microsoft.ServiceFabric.Actors.Runtime;
+using $INameSpaces$;
+
+namespace $NameSpaces$
+{
+    [ActorService(Name = "$ActorName$Service")]
+    public class $ActorName$ : KolibreActorBase, $IActorName$
+    {
+        /// <summary>
+        ///     Initializes a new instance of <see cref="$ActorName$" />
+        /// </summary>
+        /// <param name="actorService">
+        ///     The <see cref="ActorService" /> that will host this actor instance.
+        /// </param>
+        /// <param name="actorId">
+        ///     The <see cref="ActorId" /> for this actor instance.
+        /// </param>
+        /// <param name="serviceProvider">
+        ///     The <see cref="IServiceProvider" /> for this actor service.
+        /// </param>
+        public $ActorName$(ActorService actorService, ActorId actorId, IServiceProvider serviceProvider)
+            : base(actorService, actorId, serviceProvider)
+        {
+        }
+    }
+}

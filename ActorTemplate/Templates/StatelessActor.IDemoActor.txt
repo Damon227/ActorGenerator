@@ -1,0 +1,10 @@
+using System;
+using KC.Foundation.SF.Actors;
+using Microsoft.ServiceFabric.Actors;
+
+namespace $INameSpaces$
+{
+    public interface $IActorName$: IKolibreStatefulActor
+    {
+    }
+}

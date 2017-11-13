@@ -39,6 +39,7 @@ namespace ActorTemplate
         {
             InitializeComponent();
 
+            //会用皮肤后，下拉列表会闪烁。
             //InitializeSkin();
 
             InitializeConfiguration();
@@ -70,7 +71,7 @@ namespace ActorTemplate
 
             foreach (string name in projectNames)
             {
-                if (CreateProject(name))
+                if (!CreateProject(name))
                 {
                     // 创建失败，删除已创建的文件
 
@@ -80,6 +81,8 @@ namespace ActorTemplate
                     return;
                 }
             }
+
+            MessageBox.Show(@"Project create succeeded.", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
         }
 
         private static void DeleteDirAndFiles(string dirPath)
@@ -147,7 +150,16 @@ namespace ActorTemplate
                 return false;
             }
 
-            List<TemplateConfiguration> configs = s_configuration.Where(t => t.ActorType == "StatefulActor").ToList();
+            string actorType = cmb_ActorType.SelectedValue.ToString();
+            if (string.IsNullOrEmpty(actorType) || string.IsNullOrWhiteSpace(actorType))
+            {
+                MessageBox.Show(@"Actor type cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return false;
+            }
+
+            List<TemplateConfiguration> configs = s_configuration.Where(t => t.ActorType == actorType).ToList();
+
+            string guid = Guid.NewGuid().ToString();
 
             Assembly assembly = Assembly.GetExecutingAssembly();
             foreach (TemplateConfiguration config in configs)
@@ -171,7 +183,7 @@ namespace ActorTemplate
                 Stream stream = assembly.GetManifestResourceStream($"{GetType().Namespace}.{config.Sources.Replace("\\", ".")}");
                 if (stream == null)
                 {
-                    MessageBox.Show($@"File {config.Sources} not exist.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                    MessageBox.Show($@"File {config.Sources} not exist.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                     return false;
                 }
 
@@ -184,7 +196,7 @@ namespace ActorTemplate
                 content = content.Replace(_replaceActorStateName, actorState);
                 content = content.Replace(_replaceActorReminderName, actorReminder);
                 content = content.Replace(_replaceActorServiceName, actorService);
-                content = content.Replace(_replaceGuid, Guid.NewGuid().ToString());
+                content = content.Replace(_replaceGuid, guid);
 
                 CreateFileIfNotExists(path);
 
@@ -276,6 +288,7 @@ namespace ActorTemplate
             Dictionary<string, string> dic = new Dictionary<string, string>
             {
                 { "Stateful Actor", "StatefulActor" },
+                { "Stateful With Reminder Actor", "StatefulWithReminderActor" },
                 { "Stateless Actor", "StatelessActor" }
             };
 

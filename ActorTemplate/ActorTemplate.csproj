@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Kolibre-Credit-Logo-Square-64X64.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="IrisSkin4">
       <HintPath>C:\Program Files (x86)\Sunisoft\IrisSkin\Bin\IrisSkin4.dll</HintPath>
@@ -87,25 +90,32 @@
     <EmbeddedResource Include="TemplateConfig.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.DemoActor.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.Program.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.Startup.txt" />
+    <EmbeddedResource Include="Templates\StatefulActor.DemoActor.txt" />
+    <EmbeddedResource Include="Templates\StatefulActor.Program.txt" />
+    <EmbeddedResource Include="Templates\Startup.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.DemoActorCsproj.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.DemoReminder.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.DemoState.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.ServiceManifest.xml" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.Settings.xml" />
+    <EmbeddedResource Include="Templates\DemoActorCsproj.txt" />
+    <EmbeddedResource Include="Templates\DemoReminder.txt" />
+    <EmbeddedResource Include="Templates\DemoState.txt" />
+    <EmbeddedResource Include="Templates\ServiceManifest.xml" />
+    <EmbeddedResource Include="Templates\Settings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.IDemoActor.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.DemoActorInterfacesCsproj.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.DemoService.txt" />
-    <EmbeddedResource Include="Templates\StatefulActor.Actor.IDemoService.txt" />
+    <EmbeddedResource Include="Templates\StatefulActor.IDemoActor.txt" />
+    <EmbeddedResource Include="Templates\IDemoActorCsproj.txt" />
+    <EmbeddedResource Include="Templates\DemoService.txt" />
+    <EmbeddedResource Include="Templates\IDemoService.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Templates\StatefulActor.Other.txt" />
+    <EmbeddedResource Include="Templates\Other.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Kolibre-Credit-Logo-Square-64X64.ico" />
+    <EmbeddedResource Include="Templates\StatefulWithReminderActor.Program.txt" />
+    <EmbeddedResource Include="Templates\StatelessActor.DemoActor.txt" />
+    <EmbeddedResource Include="Templates\StatelessActor.IDemoActor.txt" />
+    <EmbeddedResource Include="Templates\StatelessActor.Program.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
