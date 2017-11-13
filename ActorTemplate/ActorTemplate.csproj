@@ -35,8 +35,10 @@
     <ApplicationIcon>Kolibre-Credit-Logo-Square-64X64.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IrisSkin4">
-      <HintPath>C:\Program Files (x86)\Sunisoft\IrisSkin\Bin\IrisSkin4.dll</HintPath>
+    <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\IrisSkin4.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -112,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kolibre-Credit-Logo-Square-64X64.ico" />
+    <EmbeddedResource Include="lib\IrisSkin4.dll" />
     <EmbeddedResource Include="Templates\StatefulWithReminderActor.Program.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.DemoActor.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.IDemoActor.txt" />

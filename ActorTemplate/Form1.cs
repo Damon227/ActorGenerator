@@ -288,7 +288,7 @@ namespace ActorTemplate
             Dictionary<string, string> dic = new Dictionary<string, string>
             {
                 { "Stateful Actor", "StatefulActor" },
-                { "Stateful With Reminder Actor", "StatefulWithReminderActor" },
+                { "Stateful Actor With Reminder ", "StatefulWithReminderActor" },
                 { "Stateless Actor", "StatelessActor" }
             };
 
