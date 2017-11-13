@@ -288,8 +288,9 @@ namespace ActorTemplate
             Dictionary<string, string> dic = new Dictionary<string, string>
             {
                 { "Stateful Actor", "StatefulActor" },
-                { "Stateful Actor With Reminder ", "StatefulWithReminderActor" },
-                { "Stateless Actor", "StatelessActor" }
+                { "Stateful Actor With Reminder ", "StatefulActorWithReminder" },
+                { "Stateless Actor", "StatelessActor" },
+                { "Stateless Actor With Reminder", "StatelessActorWithReminder" }
             };
 
             BindingSource bs = new BindingSource { DataSource = dic };

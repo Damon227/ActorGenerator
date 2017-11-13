@@ -16,7 +16,7 @@ namespace $INameSpaces$
         {
             ServiceFabricOption sfOption = options?.Value ?? throw new ArgumentNullException(nameof(options));
 
-            ServiceUri = new Uri(new Uri(sfOption.ClusterRootUri, UriKind.Absolute), "$ActorClassName$");
+            ServiceUri = new Uri(new Uri(sfOption.ClusterRootUri, UriKind.Absolute), "$ActorName$");
         }
 
         #region I$ActorServiceName$ Members

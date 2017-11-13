@@ -114,8 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kolibre-Credit-Logo-Square-64X64.ico" />
+    <EmbeddedResource Include="Templates\StatelessActorWithReminder.Program.txt" />
     <EmbeddedResource Include="lib\IrisSkin4.dll" />
-    <EmbeddedResource Include="Templates\StatefulWithReminderActor.Program.txt" />
+    <EmbeddedResource Include="Templates\StatefulActorWithReminder.Program.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.DemoActor.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.IDemoActor.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.Program.txt" />

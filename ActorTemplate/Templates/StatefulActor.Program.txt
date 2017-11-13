@@ -20,7 +20,7 @@ namespace $NameSpaces$
                 // are automatically populated when you build this project.
                 // For more information, see https://aka.ms/servicefabricactorsplatform
 
-                ActorRuntime.RegisterActorAsync<$ActorClassName$>(
+                ActorRuntime.RegisterActorAsync<$ActorName$>(
                     (context, actorType) => new ActorServiceBuilder(context, actorType).UseStartup<Startup>().Build<$ActorName$, $ActorStateName$>(
                         (service, id, provider) => new $ActorName$(service, id, provider))
                 ).GetAwaiter().GetResult();

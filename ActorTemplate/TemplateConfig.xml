@@ -35,7 +35,7 @@
     <Template Type = "File" Output = "$NameSpaces$\$ActorName$.cs" Source = "Templates\StatelessActor.DemoActor.txt" />
     <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatelessActor.IDemoActor.txt" />
   </TemplateSetting>
-  <TemplateSetting Name = "StatefulWithReminderActor">
+  <TemplateSetting Name = "StatefulActorWithReminder">
     <Template Type = "Folder" Output = "Sql" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\ServiceManifest.xml" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\Settings.xml" />
@@ -47,8 +47,23 @@
     <Template Type = "File" Output = "OtherXml.txt" Source = "Templates\Other.txt" />
     <Template Type = "File" Output = "$NameSpaces$\$ActorReminderName$.cs" Source = "Templates\DemoReminder.txt" />
     <Template Type = "File" Output = "$NameSpaces$\$ActorStateName$.cs" Source = "Templates\DemoState.txt" />
-    <Template Type = "File" Output = "$NameSpaces$\Program.cs" Source = "Templates\StatefulWithReminderActor.Program.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\Program.cs" Source = "Templates\StatefulActorWithReminder.Program.txt" />
     <Template Type = "File" Output = "$NameSpaces$\$ActorName$.cs" Source = "Templates\StatefulActor.DemoActor.txt" />
     <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatefulActor.IDemoActor.txt" />
+  </TemplateSetting>
+  <TemplateSetting Name = "StatelessActorWithReminder">
+    <Template Type = "Folder" Output = "Sql" />
+    <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\ServiceManifest.xml" />
+    <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\Settings.xml" />
+    <Template Type = "File" Output = "$NameSpaces$\$NameSpaces$.csproj" Source = "Templates\DemoActorCsproj.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\$INameSpaces$.csproj" Source = "Templates\IDemoActorCsproj.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\I$ActorServiceName$.cs" Source = "Templates\IDemoService.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\$ActorServiceName$.cs" Source = "Templates\DemoService.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\Startup.cs" Source = "Templates\Startup.txt" />
+    <Template Type = "File" Output = "OtherXml.txt" Source = "Templates\Other.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\$ActorReminderName$.cs" Source = "Templates\DemoReminder.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\Program.cs" Source = "Templates\StatelessActorWithReminder.Program.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\$ActorName$.cs" Source = "Templates\StatelessActor.DemoActor.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatelessActor.IDemoActor.txt" />
   </TemplateSetting>
 </TemplateSettings>

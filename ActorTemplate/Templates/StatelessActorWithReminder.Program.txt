@@ -21,7 +21,7 @@ namespace $NameSpaces$
                 // For more information, see https://aka.ms/servicefabricactorsplatform
 
                 ActorRuntime.RegisterActorAsync<$ActorName$>(
-                    (context, actorType) => new ActorServiceBuilder(context, actorType).UseStartup<Startup>().BuildStatelessActor<$ActorName$>(
+                    (context, actorType) => new ActorServiceBuilder(context, actorType).UseStartup<Startup>().BuildStatelessActorWithReminder<$ActorName$, $ActorReminderName$>(
                         (service, id, provider) => new $ActorName$(service, id, provider))
                 ).GetAwaiter().GetResult();
 
