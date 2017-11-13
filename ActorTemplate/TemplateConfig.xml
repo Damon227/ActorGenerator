@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateSettings>
+  <!--DEMOACTOR 替换成实际创建的 Actor 名称-->
+  <TemplateSetting Name = "StatefulActor">  
+    <Template Type = "Folder" Output = "Sql" />
+    <Template Type = "File" Output = "$NameSpaces$\Program.cs" Source = "Templates\StatefulActor.Actor.Program.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\Startup.cs" Source = "Templates\StatefulActor.Actor.Startup.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\$ActorName$.cs" Source = "Templates\StatefulActor.Actor.DemoActor.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\$ActorStateName$.cs" Source = "Templates\StatefulActor.Actor.DemoState.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\$ActorReminderName$.cs" Source = "Templates\StatefulActor.Actor.DemoReminder.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\$NameSpaces$.csproj" Source = "Templates\StatefulActor.Actor.DemoActorCsproj.txt" />
+    <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\StatefulActor.Actor.ServiceManifest.xml" />
+    <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\StatefulActor.Actor.Settings.xml" />
+    <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatefulActor.Actor.IDemoActor.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\I$ActorServiceName$.cs" Source = "Templates\StatefulActor.Actor.IDemoService.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\$ActorServiceName$.cs" Source = "Templates\StatefulActor.Actor.DemoService.txt" />
+    <Template Type = "File" Output = "$INameSpaces$\$INameSpaces$.csproj" Source = "Templates\StatefulActor.Actor.DemoActorInterfacesCsproj.txt" />
+    <Template Type = "File" Output = "OtherXml.txt" Source = "Templates\StatefulActor.Other.txt" />
+  </TemplateSetting>
+</TemplateSettings>

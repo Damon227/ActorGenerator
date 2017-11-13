@@ -1,0 +1,28 @@
+﻿using System;
+using System.Threading.Tasks;
+using KC.Foundation;
+using KC.Foundation.Model;
+using KC.Foundation.SF.Abstractions;
+using KC.Foundation.Sys;
+using Microsoft.Extensions.Options;
+using Microsoft.ServiceFabric.Actors;
+using Microsoft.ServiceFabric.Actors.Client;
+
+namespace $INameSpaces$
+{
+    public class $ActorServiceName$ : I$ActorServiceName$
+    {
+        public $ActorServiceName$(IOptions<ServiceFabricOption> options)
+        {
+            ServiceFabricOption sfOption = options?.Value ?? throw new ArgumentNullException(nameof(options));
+
+            ServiceUri = new Uri(new Uri(sfOption.ClusterRootUri, UriKind.Absolute), "$ActorClassName$");
+        }
+
+        #region I$ActorServiceName$ Members
+
+        public Uri ServiceUri { get; }
+
+        #endregion
+    }
+}

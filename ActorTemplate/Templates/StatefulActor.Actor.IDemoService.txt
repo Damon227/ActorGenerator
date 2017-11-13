@@ -1,0 +1,12 @@
+﻿using System;
+using System.Threading.Tasks;
+using KC.Foundation.Model;
+using KC.Foundation.SF.Abstractions;
+
+namespace $INameSpaces$
+{
+    public interface I$ActorServiceName$ : IService
+    {
+        
+    }
+}
