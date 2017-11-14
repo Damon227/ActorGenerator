@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TemplateSettings>
   <!--
-    Type = Folder 会生成文件夹
-    Type = File 会生成文件
+    Type = Folder 生成文件夹
+    Type = File 生成文件
     Output 指生成的文件路径
     Source 指文件模板路径
   -->
   <TemplateSetting Name = "StatefulActor">  
-    <Template Type = "Folder" Output = "Sql" />
+    <!--<Template Type = "Folder" Output = "$NameSpaces$\Sql" />-->
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\ServiceManifest.xml" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\Settings.xml" />
     <Template Type = "File" Output = "$NameSpaces$\$NameSpaces$.csproj" Source = "Templates\DemoActorCsproj.txt" />
@@ -22,7 +22,6 @@
     <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatefulActor.IDemoActor.txt" />
   </TemplateSetting>
   <TemplateSetting Name = "StatelessActor">
-    <Template Type = "Folder" Output = "Sql" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\ServiceManifest.xml" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\Settings.xml" />
     <Template Type = "File" Output = "$NameSpaces$\$NameSpaces$.csproj" Source = "Templates\DemoActorCsproj.txt" />
@@ -36,7 +35,6 @@
     <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatelessActor.IDemoActor.txt" />
   </TemplateSetting>
   <TemplateSetting Name = "StatefulActorWithReminder">
-    <Template Type = "Folder" Output = "Sql" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\ServiceManifest.xml" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\Settings.xml" />
     <Template Type = "File" Output = "$NameSpaces$\$NameSpaces$.csproj" Source = "Templates\DemoActorCsproj.txt" />
@@ -52,7 +50,6 @@
     <Template Type = "File" Output = "$INameSpaces$\$IActorName$.cs" Source = "Templates\StatefulActor.IDemoActor.txt" />
   </TemplateSetting>
   <TemplateSetting Name = "StatelessActorWithReminder">
-    <Template Type = "Folder" Output = "Sql" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\ServiceManifest.xml" Source = "Templates\ServiceManifest.xml" />
     <Template Type = "File" Output = "$NameSpaces$\PackageRoot\Config\Settings.xml" Source = "Templates\Settings.xml" />
     <Template Type = "File" Output = "$NameSpaces$\$NameSpaces$.csproj" Source = "Templates\DemoActorCsproj.txt" />

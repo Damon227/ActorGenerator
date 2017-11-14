@@ -32,20 +32,19 @@ namespace $NameSpaces$
             string clusterRootUri = string.Concat(serviceContext.ServiceName.Scheme, ":", serviceContext.ServiceName.Segments[0], serviceContext.ServiceName.Segments[1]);
             services.Configure<ServiceFabricOption>(options => options.ClusterRootUri = clusterRootUri);
             services.Configure<DataOptions>(config.GetSection("Data"));
-
-            services.AddSingleton<IPasswordHasher, PasswordHasher>();
         }
 
         public void ConfigureDevelopmentServices(IServiceCollection services, IConfiguration config, IHostingEnvironment environment, StatefulServiceContext serviceContext, ActorTypeInformation actorType)
         {
             // 这里的 config 已经是经过 Configure 方法配置后的 IConfiguration
 
+			services.AddInsightsTelemetry();
+
             services.Configure<ApplicationInsightsLoggerOptions>(config.GetSection("Logging:ApplicationInsightsLogger"));
             services.Configure<TraceLoggerOptions>(config.GetSection("Logging:TraceLogger"));
             services.Configure<FileLoggerOptions>(config.GetSection("Logging:FileLogger"));
             services.Configure<DatabaseLoggerOptions>(config.GetSection("Logging:DatabaseLogger"));
             services.Configure<EmailLoggerOptions>(config.GetSection("Logging:EmailLogger"));
-            services.AddSingleton<ISFAIInitializer, SFAIInitializer>();
             services.AddApplicationInsightsLogger();
             services.AddTraceLogger();
             services.AddFileLogger();
@@ -57,11 +56,14 @@ namespace $NameSpaces$
 
         public void ConfigureTestServices(IServiceCollection services, IConfiguration config, IHostingEnvironment environment, StatefulServiceContext serviceContext, ActorTypeInformation actorType)
         {
+			// 这里的 config 已经是经过 Configure 方法配置后的 IConfiguration
+
+			services.AddInsightsTelemetry();
+
             services.Configure<ApplicationInsightsLoggerOptions>(config.GetSection("Logging:ApplicationInsightsLogger"));
             services.Configure<FileLoggerOptions>(config.GetSection("Logging:FileLogger"));
             services.Configure<DatabaseLoggerOptions>(config.GetSection("Logging:DatabaseLogger"));
             services.Configure<EmailLoggerOptions>(config.GetSection("Logging:EmailLogger"));
-            services.AddSingleton<ISFAIInitializer, SFAIInitializer>();
             services.AddApplicationInsightsLogger();
             services.AddFileLogger();
             services.AddDatabaseLogger();
@@ -72,11 +74,14 @@ namespace $NameSpaces$
 
         public void ConfigureProductionServices(IServiceCollection services, IConfiguration config, IHostingEnvironment environment, StatefulServiceContext serviceContext, ActorTypeInformation actorType)
         {
+			// 这里的 config 已经是经过 Configure 方法配置后的 IConfiguration
+
+			services.AddInsightsTelemetry();
+
             services.Configure<ApplicationInsightsLoggerOptions>(config.GetSection("Logging:ApplicationInsightsLogger"));
             services.Configure<FileLoggerOptions>(config.GetSection("Logging:FileLogger"));
             services.Configure<DatabaseLoggerOptions>(config.GetSection("Logging:DatabaseLogger"));
             services.Configure<EmailLoggerOptions>(config.GetSection("Logging:EmailLogger"));
-            services.AddSingleton<ISFAIInitializer, SFAIInitializer>();
             services.AddApplicationInsightsLogger();
             services.AddFileLogger();
             services.AddDatabaseLogger();

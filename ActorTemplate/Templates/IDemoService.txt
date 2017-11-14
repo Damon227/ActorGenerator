@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using KC.Foundation.SF.IService;
+using KC.Foundation.SF;
 
 namespace $INameSpaces$
 {

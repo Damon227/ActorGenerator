@@ -40,6 +40,11 @@
       <HintPath>lib\IrisSkin4.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\NuGet.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kolibre-Credit-Logo-Square-64X64.ico" />
+    <EmbeddedResource Include="lib\NuGet.Core.dll" />
     <EmbeddedResource Include="Templates\StatelessActorWithReminder.Program.txt" />
     <EmbeddedResource Include="lib\IrisSkin4.dll" />
     <EmbeddedResource Include="Templates\StatefulActorWithReminder.Program.txt" />

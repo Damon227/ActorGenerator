@@ -17,6 +17,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
+using NuGet;
 
 namespace ActorTemplate
 {
@@ -33,6 +34,14 @@ namespace ActorTemplate
         private readonly string _replaceActorServiceName = "$ActorServiceName$";
         private readonly string _replaceGuid = "$GUID$";
 
+        private readonly string _sf = "KC.Foundation.SF";
+        private readonly string _sfAction = "KC.Foundation.SF.Action";
+        private readonly string _sfAI = "KC.Foundation.SF.AI";
+        private readonly string _sfLogging = "KC.Foundation.SF.Logging";
+        private readonly string _sfLoggingAI = "KC.Foundation.SF.Logging.AI";
+        private readonly string _sfLoggingDatabase = "KC.Foundation.SF.Logging.Database";
+        private readonly string _sfLoggingEmail = "KC.Foundation.SF.Logging.Email";
+
         private string _outputPath;
 
         public Form1()
@@ -43,6 +52,8 @@ namespace ActorTemplate
             //InitializeSkin();
 
             InitializeConfiguration();
+
+            InitializePackageVersion();
         }
 
         private void InitializeSkin()
@@ -52,18 +63,66 @@ namespace ActorTemplate
             skinEngine1.SkinStream = stream;
         }
 
+        private void InitializePackageVersion()
+        {
+            txb_SF.Text = @"1.1.1";
+            txb_SFAction.Text = @"1.1.1";
+            txb_SFAI.Text = @"1.1.1";
+            txb_SFLogging.Text = @"1.1.0";
+            txb_SFLoggingAI.Text = @"1.1.0";
+            txb_SFLoggingDatabase.Text = @"1.1.0";
+            txb_SFLoggingEmail.Text = @"1.1.0";
+        }
+
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             string projectName = txb_ActorName.Text;
-            if (string.IsNullOrEmpty(projectName) || string.IsNullOrWhiteSpace(projectName))
+            if (string.IsNullOrWhiteSpace(projectName))
             {
-                MessageBox.Show(@"Actor Name cannot be null or empty.", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                MessageBox.Show(@"Actor Name cannot be null or white space.", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 return;
             }
 
-            if (string.IsNullOrEmpty(_outputPath))
+            if (string.IsNullOrWhiteSpace(_outputPath))
             {
-                MessageBox.Show(@"Project Path cannot be null or empty.", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                MessageBox.Show(@"Project Path cannot be null or white space.", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                return;
+            }
+
+            // 检查 NuGet Package Version 是否有值
+            if (string.IsNullOrWhiteSpace(txb_SF.Text))
+            {
+                MessageBox.Show($@"Nuget package({_sf}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txb_SFAction.Text))
+            {
+                MessageBox.Show($@"Nuget package({_sfAction}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txb_SFAI.Text))
+            {
+                MessageBox.Show($@"Nuget package({_sfAI}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txb_SFLogging.Text))
+            {
+                MessageBox.Show($@"Nuget package({_sfLogging}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txb_SFLoggingAI.Text))
+            {
+                MessageBox.Show($@"Nuget package({_sfLoggingAI}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txb_SFLoggingDatabase.Text))
+            {
+                MessageBox.Show($@"Nuget package({_sfLoggingDatabase}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txb_SFLoggingEmail.Text))
+            {
+                MessageBox.Show($@"Nuget package({txb_SFLoggingEmail}) version cannot be null or white space.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
                 return;
             }
 
@@ -198,12 +257,29 @@ namespace ActorTemplate
                 content = content.Replace(_replaceActorServiceName, actorService);
                 content = content.Replace(_replaceGuid, guid);
 
+                content = ReplacePackageVersion(config, content);
+
                 CreateFileIfNotExists(path);
 
                 File.AppendAllText(path, content);
             }
 
             return true;
+        }
+
+        private string ReplacePackageVersion(TemplateConfiguration config, string content)
+        {
+            if (config.Output.EndsWith(".csproj", StringComparison.Ordinal))
+            {
+                content = content.Replace($"${_sf}$", txb_SF.Text.Trim());
+                content = content.Replace($"${_sfAction}$", txb_SFAction.Text.Trim());
+                content = content.Replace($"${_sfAI}$", txb_SFAI.Text.Trim());
+                content = content.Replace($"${_sfLogging}$", txb_SFLogging.Text.Trim());
+                content = content.Replace($"${_sfLoggingAI}$", txb_SFLoggingAI.Text.Trim());
+                content = content.Replace($"${_sfLoggingDatabase}$", txb_SFLoggingDatabase.Text.Trim());
+                content = content.Replace($"${_sfLoggingEmail}$", txb_SFLoggingEmail.Text.Trim());
+            }
+            return content;
         }
 
         private static void CreateFileIfNotExists(string fileName)
@@ -320,6 +396,78 @@ namespace ActorTemplate
             {
                 _outputPath = txb_ProjectPath.Text = folderBrowserDialog.SelectedPath;
             }
+        }
+
+        private void btn_PackageVersionUpdate_Click(object sender, EventArgs e)
+        {
+            string sfVersion = GetLastestVersion(_sf);
+            if (sfVersion == null)
+            {
+                return;
+            }
+            txb_SF.Text = sfVersion;
+
+            string sfActionVersion = GetLastestVersion(_sfAction);
+            if (sfActionVersion == null)
+            {
+                return;
+            }
+            txb_SFAction.Text = sfActionVersion;
+
+            string sfAIVersion = GetLastestVersion(_sfAI);
+            if (sfAIVersion == null)
+            {
+                return;
+            }
+            txb_SFAI.Text = sfAIVersion;
+
+            string sfLoggingVersion = GetLastestVersion(_sfLogging);
+            if (sfLoggingVersion == null)
+            {
+                return;
+            }
+            txb_SFLogging.Text = sfLoggingVersion;
+
+            string sfLoggingAIVersion = GetLastestVersion(_sfLoggingAI);
+            if (sfLoggingAIVersion == null)
+            {
+                return;
+            }
+            txb_SFLoggingAI.Text = sfLoggingAIVersion;
+
+            string sfLoggingDatabaseVersion = GetLastestVersion(_sfLoggingDatabase);
+            if (sfLoggingDatabaseVersion == null)
+            {
+                return;
+            }
+            txb_SFLoggingDatabase.Text = sfLoggingDatabaseVersion;
+
+            string sfLoggingEmailVersion = GetLastestVersion(_sfLoggingEmail);
+            if (sfLoggingEmailVersion == null)
+            {
+                return;
+            }
+            txb_SFLoggingEmail.Text = sfLoggingEmailVersion;
+
+            MessageBox.Show(@"Update package version finished", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+        }
+
+        private static string GetLastestVersion(string packageId)
+        {
+            try
+            {
+                IPackageRepository repo = PackageRepositoryFactory.Default.CreateRepository("https://www.myget.org/F/kolibrecredit");
+                List<IPackage> packages = repo.FindPackagesById(packageId).ToList();
+
+                IPackage package = packages.First(t => t.IsLatestVersion);
+                return package.Version.ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($@"Update package({packageId}) version failed, " + e.InnerException?.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+                return null;
+            }
+            
         }
     }
 }

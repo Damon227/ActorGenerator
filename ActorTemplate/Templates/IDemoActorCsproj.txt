@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KC.Foundation.SF" Version="1.1.1" />
+    <PackageReference Include="KC.Foundation.SF" Version="$KC.Foundation.SF$" />
     <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.0.219-preview" />
   </ItemGroup>
 

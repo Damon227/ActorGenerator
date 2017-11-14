@@ -8,13 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KC.Foundation.SF" Version="1.1.1" />
-    <PackageReference Include="KC.Foundation.SF.Action" Version="1.1.1" />
-    <PackageReference Include="KC.Foundation.SF.AI" Version="1.1.1" />
-    <PackageReference Include="KC.Foundation.SF.Logging" Version="1.1.0" />
-    <PackageReference Include="KC.Foundation.SF.Logging.AI" Version="1.1.0" />
-    <PackageReference Include="KC.Foundation.SF.Logging.Database" Version="1.1.0" />
-    <PackageReference Include="KC.Foundation.SF.Logging.Email" Version="1.1.0" />
+    <PackageReference Include="KC.Foundation.SF" Version="$KC.Foundation.SF$" />
+    <PackageReference Include="KC.Foundation.SF.Action" Version="$KC.Foundation.SF.Action$" />
+    <PackageReference Include="KC.Foundation.SF.AI" Version="$KC.Foundation.SF.AI$" />
+    <PackageReference Include="KC.Foundation.SF.Logging" Version="$KC.Foundation.SF.Logging$" />
+    <PackageReference Include="KC.Foundation.SF.Logging.AI" Version="$KC.Foundation.SF.Logging.AI$" />
+    <PackageReference Include="KC.Foundation.SF.Logging.Database" Version="$KC.Foundation.SF.Logging.Database$" />
+    <PackageReference Include="KC.Foundation.SF.Logging.Email" Version="$KC.Foundation.SF.Logging.Email$" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.0" />
     <PackageReference Include="Microsoft.ServiceFabric" Version="6.1.219-preview" />
     <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.0.219-preview" />

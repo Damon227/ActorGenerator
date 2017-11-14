@@ -11,7 +11,7 @@
 
 
 <ServiceManifestImport>
-  <ServiceManifestRef ServiceManifestName="$ActorName$Pkg" ServiceManifestVersion="1.0.0" />
+  <ServiceManifestRef ServiceManifestName="$NameSpaces$Pkg" ServiceManifestVersion="1.0.0" />
   <ConfigOverrides>
     <ConfigOverride Name="Config">
       <Settings>
@@ -73,3 +73,4 @@
 
 
 <ProjectReference Include="..\$NameSpaces$\$NameSpaces$.csproj" />
+
