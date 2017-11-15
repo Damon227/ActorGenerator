@@ -10,7 +10,7 @@ namespace $INameSpaces$
         {
             ServiceFabricOption sfOption = options?.Value ?? throw new ArgumentNullException(nameof(options));
 
-            ServiceUri = new Uri(new Uri(sfOption.ClusterRootUri, UriKind.Absolute), "$ActorName$");
+            ServiceUri = new Uri(new Uri(sfOption.ClusterRootUri, UriKind.Absolute), "$ActorName$Service");
         }
 
         #region I$ActorServiceName$ Members
