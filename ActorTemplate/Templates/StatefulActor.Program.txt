@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Threading;
 using KC.Foundation.SF.Actors;
+using KC.Foundation.Sys;
+using KC.Foundation.Utilities;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace $NameSpaces$
@@ -36,6 +40,8 @@ namespace $NameSpaces$
                 }
 #endif
                 Trace.TraceError(e.Message);
+                File.AppendAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Crash{Time.Now:yyyyMMddDDmmSSffffff}.log"),
+                    e.GetExceptionString(), Encoding.UTF8);
                 throw;
             }
         }
