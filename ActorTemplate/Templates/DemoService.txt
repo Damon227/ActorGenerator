@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using KC.Foundation.SF;
 using Microsoft.Extensions.Options;
 

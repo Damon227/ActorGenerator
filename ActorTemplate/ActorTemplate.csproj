@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates\DemoActorCsproj.txt" />
-    <EmbeddedResource Include="Templates\DemoReminder.txt" />
     <EmbeddedResource Include="Templates\DemoState.txt" />
     <EmbeddedResource Include="Templates\ServiceManifest.xml" />
     <EmbeddedResource Include="Templates\Settings.xml" />
@@ -101,10 +100,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kolibre-Credit-Logo-Square-64X64.ico" />
+    <EmbeddedResource Include="Templates\StatefulActorWithReminder.DemoActor.txt" />
+    <EmbeddedResource Include="Templates\StatelessActorWithReminder.DemoActor.txt" />
     <EmbeddedResource Include="lib\NuGet.Core.dll" />
-    <EmbeddedResource Include="Templates\StatelessActorWithReminder.Program.txt" />
     <EmbeddedResource Include="lib\IrisSkin4.dll" />
-    <EmbeddedResource Include="Templates\StatefulActorWithReminder.Program.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.DemoActor.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.IDemoActor.txt" />
     <EmbeddedResource Include="Templates\StatelessActor.Program.txt" />

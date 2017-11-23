@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Solution         : EmbeddedTemplate
 // Project          : ActorTemplate
 // File             : Form1.cs
@@ -15,6 +15,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using NuGet;
@@ -65,13 +66,13 @@ namespace ActorTemplate
 
         private void InitializePackageVersion()
         {
-            txb_SF.Text = @"1.1.1";
-            txb_SFAction.Text = @"1.1.1";
-            txb_SFAI.Text = @"1.1.1";
-            txb_SFLogging.Text = @"1.1.0";
-            txb_SFLoggingAI.Text = @"1.1.0";
-            txb_SFLoggingDatabase.Text = @"1.1.0";
-            txb_SFLoggingEmail.Text = @"1.1.0";
+            txb_SF.Text = @"1.3.0";
+            txb_SFAction.Text = @"1.3.0";
+            txb_SFAI.Text = @"1.3.0";
+            txb_SFLogging.Text = @"1.3.0";
+            txb_SFLoggingAI.Text = @"1.3.0";
+            txb_SFLoggingDatabase.Text = @"1.3.0";
+            txb_SFLoggingEmail.Text = @"1.3.0";
         }
 
         private void btn_Submit_Click(object sender, EventArgs e)
@@ -261,7 +262,7 @@ namespace ActorTemplate
 
                 CreateFileIfNotExists(path);
 
-                File.AppendAllText(path, content);
+                File.AppendAllText(path, content, Encoding.UTF8);
             }
 
             return true;

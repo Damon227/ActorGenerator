@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using KC.Foundation.SF.Actors;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
@@ -7,6 +7,7 @@ using $INameSpaces$;
 namespace $NameSpaces$
 {
     [ActorService(Name = "$ActorName$Service")]
+	[KolibreActorStateDatabase("", "dbo")]
     public class $ActorName$ : KolibreActorBase<$ActorStateName$>, $IActorName$
     {
         /// <summary>

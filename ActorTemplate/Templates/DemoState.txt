@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using KC.Foundation.SF.Actors;
 
 namespace $NameSpaces$
 {
-    [Table("", Schema = "dbo")]
     public class $ActorStateName$ : KolibreActorState
     {
         

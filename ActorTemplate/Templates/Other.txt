@@ -50,7 +50,6 @@
           <Parameter Name="EmailLogger_FromEmailAccountPassword" Value="[Logging_EmailLogger_FromEmailAccountPassword]" />
           <Parameter Name="EmailLogger_ToEmailAccount" Value="[Logging_EmailLogger_ToEmailAccount]" />
           <Parameter Name="EmailLogger_LogLevel_Default" Value="[Logging_EmailLogger_LogLevel_Default]" />
-          <Parameter Name="EmailLogger_Environment" Value="[Application_Env]" />
         </Section>
         <Section Name="ApplicationInsights">
           <Parameter Name="InstrumentationKey" Value="[ApplicationInsights_InstrumentationKey]" />
@@ -65,7 +64,7 @@
 </ServiceManifestImport>
 
 
-<Service Name="$ActorName$Service" GeneratedIdRef="$GUID$|Persisted">
+<Service Name="$ActorName$Service" GeneratedIdRef="$GUID$|None">
   <StatefulService ServiceTypeName="$ActorName$ServiceType" TargetReplicaSetSize="[$ActorName$Service_TargetReplicaSetSize]" MinReplicaSetSize="[$ActorName$Service_MinReplicaSetSize]">
     <UniformInt64Partition PartitionCount="[$ActorName$Service_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
   </StatefulService>

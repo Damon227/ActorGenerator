@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Fabric;
 using KC.Foundation.Data;
 using KC.Foundation.SF;
@@ -7,7 +7,6 @@ using KC.Foundation.SF.Logging;
 using KC.Foundation.SF.Logging.AI;
 using KC.Foundation.SF.Logging.Database;
 using KC.Foundation.SF.Logging.Email;
-using KC.Foundation.Utilities.Cryptography;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.ServiceFabric.Actors.Runtime;

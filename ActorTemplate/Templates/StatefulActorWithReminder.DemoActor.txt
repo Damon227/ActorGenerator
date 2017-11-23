@@ -7,7 +7,9 @@ using $INameSpaces$;
 namespace $NameSpaces$
 {
     [ActorService(Name = "$ActorName$Service")]
-    public class $ActorName$ : KolibreActorBase, $IActorName$
+	[KolibreActorStateDatabase("", "dbo")]
+    [KolibreActorReminderDatabase("", "dbo")]
+    public class $ActorName$ : KolibreActorBase<$ActorStateName$>, $IActorName$
     {
         /// <summary>
         ///     Initializes a new instance of <see cref="$ActorName$" />
