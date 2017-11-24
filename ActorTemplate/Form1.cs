@@ -66,13 +66,13 @@ namespace ActorTemplate
 
         private void InitializePackageVersion()
         {
-            txb_SF.Text = @"1.3.0";
-            txb_SFAction.Text = @"1.3.0";
-            txb_SFAI.Text = @"1.3.0";
-            txb_SFLogging.Text = @"1.3.0";
-            txb_SFLoggingAI.Text = @"1.3.0";
-            txb_SFLoggingDatabase.Text = @"1.3.0";
-            txb_SFLoggingEmail.Text = @"1.3.0";
+            txb_SF.Text = @"1.3.1";
+            txb_SFAction.Text = @"1.3.1";
+            txb_SFAI.Text = @"1.3.1";
+            txb_SFLogging.Text = @"1.3.1";
+            txb_SFLoggingAI.Text = @"1.3.1";
+            txb_SFLoggingDatabase.Text = @"1.3.1";
+            txb_SFLoggingEmail.Text = @"1.3.1";
         }
 
         private void btn_Submit_Click(object sender, EventArgs e)
