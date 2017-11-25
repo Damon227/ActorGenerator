@@ -15,14 +15,6 @@
     <PackageReference Include="KC.Foundation.SF.Logging.AI" Version="$KC.Foundation.SF.Logging.AI$" />
     <PackageReference Include="KC.Foundation.SF.Logging.Database" Version="$KC.Foundation.SF.Logging.Database$" />
     <PackageReference Include="KC.Foundation.SF.Logging.Email" Version="$KC.Foundation.SF.Logging.Email$" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.0" />
-    <PackageReference Include="Microsoft.ServiceFabric" Version="6.1.219-preview" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.0.219-preview" />
-    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.0.219-preview" />
-    <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="3.0.219-preview" />
-    <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="3.0.219-preview" />
-    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.0.219-preview" />
-    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.0.219-preview" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="KC.Foundation.SF" Version="$KC.Foundation.SF$" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.0.219-preview" />
   </ItemGroup>
 
 </Project>
